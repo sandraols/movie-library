@@ -57,7 +57,7 @@ body {
   border: none;
   border-radius: 30px;
   width: 300px;
-  background-color: #fff6eeb8;
+  background-color: rgba(255, 255, 255, 0.7);
   font-weight: 700;
   padding: 14px;
   font-size: 14px;
@@ -95,10 +95,6 @@ body {
   transform: translateX(-50px);
 }
 
-.button:focus {
-  outline: none;
-}
-
 .fa-search {
   font-size: 20px;
   color: #141414;
@@ -116,7 +112,7 @@ body {
 .themes__title {
   font-family: "Open Sans", sans-serif;
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.801);
+  color: rgba(255, 255, 255, 0.7);
   margin-bottom: 10px;
   margin-left: 4px;
 }
@@ -177,6 +173,10 @@ body {
   background-image: url("../images/horror-background-small.jpg");
 }
 
+.theme__button:nth-of-type(5)::before {
+  background-image: url("https://cdn.pixabay.com/photo/2020/02/07/18/37/apocalypse-4828037_1280.jpg");
+}
+
 .theme__button:hover::before {
   opacity: 1;
 }
@@ -203,7 +203,7 @@ body {
   background-color: #fff6ee;
   width: 535px;
   border-radius: 4px;
-  box-shadow: 0 1px 3px rgba(255, 0, 0, 0.12), 0 1px 2px rgba(255, 0, 0, 0.24);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   -moz-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   -o-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   -webkit-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -292,6 +292,10 @@ body {
 
   .input {
     max-width: 265px;
+  }
+
+  .movie__container {
+    margin-top: 4vh;
   }
 
   .movie__content {
@@ -412,7 +416,7 @@ body {
 }
 
 .movie__content--hollywood:hover {
-  box-shadow: 0 0 18px #ece262, 0 5px 10px #ece262;
+  box-shadow: 0 0 5px #ece262, 0 0 15px #ece262;
 }
 
 /* -------- Fantasy -------- */
@@ -422,36 +426,36 @@ body {
 }
 
 .main__title--fantasy {
-  color: #3d6081;
-  border: 5px dotted #3d6081;
+  color: #2b4864;
+  border: 5px dotted #2b4864;
 }
 
 .input--fantasy {
-  color: black;
+  color: #2b4864;
 }
 
 .input--fantasy:focus {
-  box-shadow: 0 0 10px #3d6081;
+  box-shadow: 0 0 10px #2b4864;
 }
 
 .input--fantasy:hover {
-  box-shadow: 0 0 10px #3d6081;
+  box-shadow: 0 0 10px #2b4864;
 }
 
 .fa-search--fantasy:hover {
-  color: #3d6081;
+  color: #2b4864;
 }
 
 .movie__title--fantasy:hover {
-  color: #3d6081;
+  color: #2b4864;
 }
 
 .fa-times--fantasy:hover {
-  color: #3d6081;
+  color: #2b4864;
 }
 
 .movie__content--fantasy:hover {
-  box-shadow: 0 0 18px #3d6081, 0 5px 10px #3d6081;
+  box-shadow: 0 0 18px #2b4864, 0 5px 10px #2b4864;
 }
 
 /* -------- Horror -------- */
@@ -465,7 +469,7 @@ body {
 }
 
 .input--horror {
-  color: black;
+  color: #5f1515;
 }
 
 .input--horror:focus {
@@ -489,7 +493,45 @@ body {
 }
 
 .movie__content--horror:hover {
-  box-shadow: 0 0 18px #5f1515, 0 5px 10px #5f1515;
+  box-shadow: 0 0 5px #1b1a1a, 0 0 15px #1b1a1a;
+}
+
+/* -------- Adventure -------- */
+.adventure__theme {
+  background-image: url("https://cdn.pixabay.com/photo/2020/02/07/18/37/apocalypse-4828037_1280.jpg");
+}
+
+.main__title--adventure {
+  color: #7dd649;
+  border: 5px dotted #7dd649;
+}
+
+.input--adventure {
+  color: #7dd649;
+}
+
+.input--adventure:focus {
+  box-shadow: 0 0 10px #7dd649;
+}
+
+.input--adventure:hover {
+  box-shadow: 0 0 10px #7dd649;
+}
+
+.fa-search--adventure:hover {
+  color: #7dd649;
+}
+
+.movie__title--adventure:hover {
+  color: #7dd649;
+}
+
+.fa-times--adventure:hover {
+  color: #7dd649;
+}
+
+.movie__content--adventure:hover {
+  box-shadow: 0 0 5px #7dd649, 0 0 15px #7dd649;
 }
 
 /*# sourceMappingURL=style.css.map */

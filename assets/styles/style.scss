@@ -3,16 +3,15 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 button:focus {
     outline: none;
 }
 
 $primary-color: #ec6280;
 $hollywood-color: #ece262;
-$fantasy-color: rgb(61, 96, 129);
+$fantasy-color: rgb(43, 72, 100);
 $horror-color: rgb(95, 21, 21);
-
+$adventure-color: rgb(125, 214, 73);
 $main-font: 'Limelight', sans-serif;
 $paragraph-font: 'Open Sans', sans-serif;
 
@@ -56,13 +55,11 @@ body {
     padding: 15px;
     cursor: default;
 }
-
 .header-container {
     height: 45vh;
     @include flex-with-justify-and-align(center, center);
     @include flex-with-alignment-and-direction(center, center, column);
 }
-
 .main__title {
     font-family: $main-font;
     font-size: 56px;
@@ -81,33 +78,25 @@ body {
     flex-direction: row;
     margin-left: 50px;
 }
-
 .input {
     font-family: $paragraph-font;
     border: none;
     border-radius: 30px;
     width: 300px;
-    background-color: #fff6eeb8;
+    background-color: rgba(255, 255, 255, 0.7);
     font-weight: 700;
     padding: 14px;
     font-size: 14px;
     padding-right: 50px;
     @include transition(.2s);
 }
-
 .input::placeholder {
     color: #252525;
     font-weight: 700;
 }
-
 .input:focus {
     outline: none;
-    // box-shadow: 0 0 10px rgb(255, 0, 0);
     background-color: #fff6ee;
-}
-
-.input:hover {
-    // box-shadow: 0 0 10px rgb(255, 0, 0);
 }
 
 /* -------- Search Button -------- */
@@ -122,11 +111,6 @@ body {
     @include transition(.2s);
     @include transform(translateX(-50px));
 }
-
-.button:focus {
-    outline: none;
-}
-
 .fa-search {
     font-size: 20px;
     color: rgb(20, 20, 20);
@@ -137,17 +121,14 @@ body {
 
 .themes {
     margin: 16px;
-    // position: absolute;
 }
-
 .themes__title {
     font-family: $paragraph-font;
     font-weight: 700;
-    color: rgba(255, 255, 255, 0.801);
+    color: rgba(255, 255, 255, 0.7);
     margin-bottom: 10px;
     margin-left: 4px;
 }
-
 .theme__button {
     width: 70px;
     height: 70px;
@@ -162,13 +143,11 @@ body {
     font-weight: 700;
     position: relative;
 }
-
 .theme__button__title {
     position: relative;
     color: #ffffff;  
     text-align: center;
 }
-
 .theme__button::before {
     content: "";
     background-position: center;
@@ -184,27 +163,24 @@ body {
     border-radius: 50%;
     @include transition(.2s);
 }
-
 .theme__button:nth-of-type(1)::before {
     background-image: url('../images/scifi-background-small.jpg');
 }
-
 .theme__button:nth-of-type(2)::before {
     background-image: url('../images/hollywood-background-small.jpg');
 }
-
 .theme__button:nth-of-type(3)::before {
     background-image: url('../images/fantasy-background-small.jpg');
 }
-
 .theme__button:nth-of-type(4)::before {
     background-image: url('../images/horror-background-small.jpg');
 }
-
+.theme__button:nth-of-type(5)::before {
+    background-image: url('https://cdn.pixabay.com/photo/2020/02/07/18/37/apocalypse-4828037_1280.jpg');
+}
 .theme__button:hover::before {
     opacity: 1;
 }
-
 .active::before {
     opacity: 1;
 }
@@ -220,7 +196,6 @@ body {
     flex-direction: column;
     margin-top: 10vh;
 }
-
 .movie__content {
     display: flex;
     flex-direction: row;
@@ -229,7 +204,7 @@ body {
     background-color: #fff6ee;
     width: 535px;
     border-radius: 4px;
-    box-shadow: 0 1px 3px rgba(255, 0, 0, 0.12), 0 1px 2px rgba(255, 0, 0, 0.24);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     @include transition(all 0.3s cubic-bezier(.25,.8,.25,1));
 }
 
@@ -242,7 +217,6 @@ body {
     display: flex;
     flex-direction: column;
 }
-
 .movie__title {
     font-family: $main-font;
     color: black;
@@ -252,7 +226,6 @@ body {
     @include transition(.2s);
     position: relative;
 }
-
 .movie__title .link__text {
     visibility: hidden;
     background-color: black;
@@ -264,24 +237,20 @@ body {
     position: absolute;
     z-index: 1;
 }
-  
 .movie__title:hover .link__text {
     visibility: visible;
 }
-
 .info__title {
     font-family: $main-font;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
-
 .paragraph {
     width: 100%;
     font-family: $paragraph-font;
     margin-bottom: 10px;
     font-size: 14px;
 }
-
 .fa-times {
     position: absolute;
     left: 262px;
@@ -296,7 +265,6 @@ body {
     width: 90%;
     margin: 30px 0 30px 30px;
 }
-
 .poster {
     border: 3px solid black;
 }
@@ -312,6 +280,9 @@ body {
     }
     .input {
         max-width: 265px;
+    }
+    .movie__container {
+        margin-top: 4vh;
     }
     .movie__content {
         width: 290px;
@@ -416,7 +387,7 @@ body {
     color: $hollywood-color;
 }
 .movie__content--hollywood:hover {
-    box-shadow: 0 0 18px $hollywood-color, 0 5px 10px $hollywood-color;
+    box-shadow: 0 0 5px $hollywood-color, 0 0 15px $hollywood-color;
 }
 
 /* -------- Fantasy -------- */
@@ -430,7 +401,7 @@ body {
     border: 5px dotted $fantasy-color;
 }
 .input--fantasy {
-    color: black;
+    color: $fantasy-color;
 }
 .input--fantasy:focus {
     box-shadow: 0 0 10px $fantasy-color;
@@ -461,7 +432,7 @@ body {
     border: 5px dotted $horror-color;
 }
 .input--horror {
-    color: black;
+    color: $horror-color;
 }
 .input--horror:focus {
     box-shadow: 0 0 10px $horror-color;
@@ -479,5 +450,36 @@ body {
     color: $horror-color;
 }
 .movie__content--horror:hover {
-    box-shadow: 0 0 18px $horror-color, 0 5px 10px $horror-color;
+    box-shadow: 0 0 5px rgb(27, 26, 26), 0 0 15px rgb(27, 26, 26);
+}
+
+/* -------- Adventure -------- */
+
+.adventure__theme {
+    background-image: url('https://cdn.pixabay.com/photo/2020/02/07/18/37/apocalypse-4828037_1280.jpg');
+}
+.main__title--adventure {
+    color: $adventure-color;
+    border: 5px dotted $adventure-color;
+}
+.input--adventure {
+    color: $adventure-color;
+}
+.input--adventure:focus {
+    box-shadow: 0 0 10px $adventure-color;
+}
+.input--adventure:hover {
+    box-shadow: 0 0 10px $adventure-color;
+}
+.fa-search--adventure:hover {
+    color: $adventure-color;
+}
+.movie__title--adventure:hover {
+    color: $adventure-color;
+}
+.fa-times--adventure:hover {
+    color: $adventure-color;
+}
+.movie__content--adventure:hover {
+    box-shadow: 0 0 5px $adventure-color, 0 0 15px $adventure-color;
 }
