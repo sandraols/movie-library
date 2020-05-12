@@ -1,0 +1,495 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button:focus {
+  outline: none;
+}
+
+/*--------------------*/
+/* LANDING PAGE */
+/*--------------------*/
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;
+  padding: 15px;
+  cursor: default;
+}
+
+.header-container {
+  height: 45vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.main__title {
+  font-family: "Limelight", sans-serif;
+  font-size: 56px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin-bottom: 5vh;
+  margin-top: 2vh;
+  padding: 10px;
+}
+
+/* -------- Input -------- */
+.input__container {
+  display: flex;
+  flex-direction: row;
+  margin-left: 50px;
+}
+
+.input {
+  font-family: "Open Sans", sans-serif;
+  border: none;
+  border-radius: 30px;
+  width: 300px;
+  background-color: #fff6eeb8;
+  font-weight: 700;
+  padding: 14px;
+  font-size: 14px;
+  padding-right: 50px;
+  -moz-transition: 0.2s;
+  -o-transition: 0.2s;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.input::placeholder {
+  color: #252525;
+  font-weight: 700;
+}
+
+.input:focus {
+  outline: none;
+  background-color: #fff6ee;
+}
+
+/* -------- Search Button -------- */
+.button {
+  background-color: transparent;
+  width: 50px;
+  padding: 10px;
+  border: none;
+  border-radius: 0 30px 30px 0;
+  cursor: pointer;
+  -moz-transition: 0.2s;
+  -o-transition: 0.2s;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  -webkit-transform: translateX(-50px);
+  -ms-transform: translateX(-50px);
+  transform: translateX(-50px);
+}
+
+.button:focus {
+  outline: none;
+}
+
+.fa-search {
+  font-size: 20px;
+  color: #141414;
+  -moz-transition: 0.2s;
+  -o-transition: 0.2s;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+/* -------- Themes picker -------- */
+.themes {
+  margin: 16px;
+}
+
+.themes__title {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.801);
+  margin-bottom: 10px;
+  margin-left: 4px;
+}
+
+.theme__button {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: none;
+  margin-right: 5px;
+  padding: 3px;
+  cursor: pointer;
+  background-color: lightgray;
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  position: relative;
+}
+
+.theme__button__title {
+  position: relative;
+  color: #ffffff;
+  text-align: center;
+}
+
+.theme__button::before {
+  content: "";
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.5;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  -moz-transition: 0.2s;
+  -o-transition: 0.2s;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.theme__button:nth-of-type(1)::before {
+  background-image: url("../images/scifi-background-small.jpg");
+}
+
+.theme__button:nth-of-type(2)::before {
+  background-image: url("../images/hollywood-background-small.jpg");
+}
+
+.theme__button:nth-of-type(3)::before {
+  background-image: url("../images/fantasy-background-small.jpg");
+}
+
+.theme__button:nth-of-type(4)::before {
+  background-image: url("../images/horror-background-small.jpg");
+}
+
+.theme__button:hover::before {
+  opacity: 1;
+}
+
+.active::before {
+  opacity: 1;
+}
+
+/*--------------------*/
+/* MOVIE CONTAINER */
+/*--------------------*/
+.movie__container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 10vh;
+}
+
+.movie__content {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  background-color: #fff6ee;
+  width: 535px;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(255, 0, 0, 0.12), 0 1px 2px rgba(255, 0, 0, 0.24);
+  -moz-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  -o-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  -webkit-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* -------- Right Content -------- */
+.right__content {
+  width: 70%;
+  margin: 30px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.movie__title {
+  font-family: "Limelight", sans-serif;
+  color: black;
+  text-transform: uppercase;
+  text-decoration: underline;
+  margin-bottom: 10px;
+  -moz-transition: 0.2s;
+  -o-transition: 0.2s;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  position: relative;
+}
+
+.movie__title .link__text {
+  visibility: hidden;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  font-size: 12px;
+  border-radius: 4px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+}
+
+.movie__title:hover .link__text {
+  visibility: visible;
+}
+
+.info__title {
+  font-family: "Limelight", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.paragraph {
+  width: 100%;
+  font-family: "Open Sans", sans-serif;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.fa-times {
+  position: absolute;
+  left: 262px;
+  top: -24px;
+  cursor: pointer;
+  -moz-transition: 0.2s;
+  -o-transition: 0.2s;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+/* -------- Left Content -------- */
+.left__content .poster {
+  width: 90%;
+  margin: 30px 0 30px 30px;
+}
+
+.poster {
+  border: 3px solid black;
+}
+
+/*--------------------*/
+/* MEDIA QUERIES */
+/*--------------------*/
+@media screen and (max-width: 565px) {
+  .main__title {
+    font-size: 30px;
+  }
+
+  .input {
+    max-width: 265px;
+  }
+
+  .movie__content {
+    width: 290px;
+    max-height: 350px;
+    overflow-y: scroll;
+    flex-direction: column-reverse;
+  }
+
+  .movie__title {
+    font-size: 5vw;
+  }
+
+  .movie__content:first-of-type {
+    margin-top: 24px;
+  }
+
+  .paragraph {
+    font-size: 12px;
+  }
+
+  .fa-times {
+    left: 246px;
+    top: -24px;
+  }
+
+  .left__content .poster {
+    margin: 0 0 30px 30px;
+    width: 78%;
+  }
+}
+@media (device-height: 568px) and (device-width: 320px) and (-webkit-min-device-pixel-ratio: 2) {
+  .main__title {
+    font-size: 8vw;
+  }
+
+  .input {
+    max-width: 214px;
+  }
+
+  .right__content {
+    width: 80%;
+  }
+}
+/*--------------------*/
+/* THEMES */
+/*--------------------*/
+/* -------- Sci-Fi/Default -------- */
+.sci-fi__theme {
+  background-image: url("../images/scifi-background.jpg");
+}
+
+.main__title--sci-fi {
+  color: #ec6280;
+  border: 5px dotted #ec6280;
+}
+
+.input--sci-fi {
+  color: #ec6280;
+}
+
+.input--sci-fi:focus {
+  box-shadow: 0 0 10px #ec6280;
+}
+
+.input--sci-fi:hover {
+  box-shadow: 0 0 10px #ec6280;
+}
+
+.fa-search--sci-fi:hover {
+  color: #ec6280;
+}
+
+.movie__title--sci-fi:hover {
+  color: #ec6280;
+}
+
+.fa-times--sci-fi:hover {
+  color: #ec6280;
+}
+
+.movie__content--sci-fi:hover {
+  box-shadow: 0 0 18px rgba(255, 0, 0, 0.25), 0 5px 10px rgba(255, 0, 0, 0.22);
+}
+
+/* -------- Hollywood -------- */
+.hollywood__theme {
+  background-image: url("../images/hollywood-background.jpg");
+}
+
+.main__title--hollywood {
+  color: #ece262;
+  border: 5px dotted #ece262;
+}
+
+.input--hollywood {
+  color: black;
+}
+
+.input--hollywood:focus {
+  box-shadow: 0 0 10px #ece262;
+}
+
+.input--hollywood:hover {
+  box-shadow: 0 0 10px #ece262;
+}
+
+.fa-search--hollywood:hover {
+  color: #ece262;
+}
+
+.movie__title--hollywood:hover {
+  color: #ece262;
+}
+
+.fa-times--hollywood:hover {
+  color: #ece262;
+}
+
+.movie__content--hollywood:hover {
+  box-shadow: 0 0 18px #ece262, 0 5px 10px #ece262;
+}
+
+/* -------- Fantasy -------- */
+.fantasy__theme {
+  background-image: url("../images/fantasy-background.jpg");
+  background-position: top;
+}
+
+.main__title--fantasy {
+  color: #3d6081;
+  border: 5px dotted #3d6081;
+}
+
+.input--fantasy {
+  color: black;
+}
+
+.input--fantasy:focus {
+  box-shadow: 0 0 10px #3d6081;
+}
+
+.input--fantasy:hover {
+  box-shadow: 0 0 10px #3d6081;
+}
+
+.fa-search--fantasy:hover {
+  color: #3d6081;
+}
+
+.movie__title--fantasy:hover {
+  color: #3d6081;
+}
+
+.fa-times--fantasy:hover {
+  color: #3d6081;
+}
+
+.movie__content--fantasy:hover {
+  box-shadow: 0 0 18px #3d6081, 0 5px 10px #3d6081;
+}
+
+/* -------- Horror -------- */
+.horror__theme {
+  background-image: url("../images/horror-background.jpg");
+}
+
+.main__title--horror {
+  color: #5f1515;
+  border: 5px dotted #5f1515;
+}
+
+.input--horror {
+  color: black;
+}
+
+.input--horror:focus {
+  box-shadow: 0 0 10px #5f1515;
+}
+
+.input--horror:hover {
+  box-shadow: 0 0 10px #5f1515;
+}
+
+.fa-search--horror:hover {
+  color: #5f1515;
+}
+
+.movie__title--horror:hover {
+  color: #5f1515;
+}
+
+.fa-times--horror:hover {
+  color: #5f1515;
+}
+
+.movie__content--horror:hover {
+  box-shadow: 0 0 18px #5f1515, 0 5px 10px #5f1515;
+}
+
+/*# sourceMappingURL=style.css.map */
