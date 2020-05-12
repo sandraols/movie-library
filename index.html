@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Spectacular</title>
+    <link rel="stylesheet" href="./assets/styles/normalize.css">
     <link rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Limelight&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/styles/style.css">
 </head>
-<body class="sci-fi__theme">
+<body>
+    <div id="background-wrap" class="sci-fi__theme"></div>
     <div class="header-container">
         <h1 id="main-title" class="main__title main__title--sci-fi">Spectacular<br>Movie Library</h1>
         <div class="input__container">
@@ -23,7 +25,7 @@
     </div>
     <div class="themes">
         <h3 class="themes__title">Themes</h3>
-        <div>
+        <div class="theme-buttons__container">
             <button id="sci-fi" class="theme__button sci-fi__button active"><span class="theme__button__title">Sci-Fi</span></button>
             <button id="hollywood" class="theme__button hollywood__button"><span class="theme__button__title">Hollywood</span></button>
             <button id="fantasy" class="theme__button fantasy__button"><span class="theme__button__title">Fantasy</span></button>

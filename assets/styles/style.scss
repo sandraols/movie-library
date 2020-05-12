@@ -11,7 +11,7 @@ $primary-color: #ec6280;
 $hollywood-color: #ece262;
 $fantasy-color: rgb(43, 72, 100);
 $horror-color: rgb(95, 21, 21);
-$adventure-color: rgb(125, 214, 73);
+$adventure-color: rgb(144, 206, 108);
 $main-font: 'Limelight', sans-serif;
 $paragraph-font: 'Open Sans', sans-serif;
 
@@ -28,15 +28,47 @@ $paragraph-font: 'Open Sans', sans-serif;
     transition: $transition;
 }
 
-@mixin flex-with-justify-and-align($justify, $align) {
+@mixin flexbox() {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flexbox;
+    display: -webkit-flex;
     display: flex;
+}
+
+@mixin flex-direction($direction) {
+    -webkit-flex-direction: $direction;
+    -moz-flex-direction: $direction;
+    -ms-flex-direction: $direction;
+    flex-direction: $direction;
+}
+
+@mixin justify-content($justify) {
+    -webkit-justify-content: $justify;
+    -moz-justify-content: $justify;
+    -ms-justify-content: $justify;
     justify-content: $justify;
+    -ms-flex-pack: $justify;
+}
+
+@mixin align-items($align) {
+    -webkit-align-items: $align;
+    -moz-align-items: $align;
+    -ms-align-items: $align;
+    -ms-flex-align: $align;
     align-items: $align;
+}
+
+@mixin flex-with-justify-and-align($justify, $align) {
+    @include flexbox();
+    @include justify-content($justify);
+    @include align-items($align);
 }
 
 @mixin flex-with-alignment-and-direction($justify, $align, $direction) {
     @include flex-with-justify-and-align($justify, $align);
-    flex-direction: $direction;
+    @include flex-direction($direction);
 }
 
 
@@ -44,16 +76,50 @@ $paragraph-font: 'Open Sans', sans-serif;
 /* LANDING PAGE */
 /*--------------------*/
 
+// body {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: space-between;
+//     background-position: center;
+//     background-size: cover;
+//     background-attachment: fixed;
+//     height: 100vh;
+//     padding: 15px;
+//     cursor: default;
+// }
 body {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
-    height: 100vh;
+    @include flexbox();
+    @include flex-direction(column);
+    @include justify-content(space-between);
+    min-height: 100vh;
     padding: 15px;
     cursor: default;
+}
+#background-wrap {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    background-position: center;
+    -webkit-background-position: center;
+    -moz-background-position: center;
+    -o-background-position: center;
+
+    // background-attachment: fixed;
+    // -webkit-background-attachment: fixed;
+    // -moz-background-attachment: fixed;
+    // -o-background-attachment: fixed;
+
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+
+    z-index: -1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
 }
 .header-container {
     height: 45vh;
@@ -74,8 +140,8 @@ body {
 /* -------- Input -------- */
 
 .input__container {
-    display: flex;
-    flex-direction: row;
+    @include flexbox();
+    @include flex-direction(row);
     margin-left: 50px;
 }
 .input {
@@ -117,10 +183,18 @@ body {
     @include transition(.2s);
 }
 
-/* -------- Themes picker -------- */
+/* -------- Themes buttons -------- */
 
 .themes {
     margin: 16px;
+}
+.theme-buttons__container {
+    width: fit-content;
+}
+.theme-buttons__container:hover {
+    .theme__button {
+        left: 0px;
+    }
 }
 .themes__title {
     font-family: $paragraph-font;
@@ -142,11 +216,32 @@ body {
     font-family: $paragraph-font;
     font-weight: 700;
     position: relative;
+    @include transition(.3s);
+}
+.theme__button:nth-of-type(1) {
+    z-index: 10;
+}
+.theme__button:nth-of-type(2) {
+    left: -60px;
+    z-index: 9;
+}
+.theme__button:nth-of-type(3) {
+    left: -120px;
+    z-index: 8;
+}
+.theme__button:nth-of-type(4) {
+    left: -180px;
+    z-index: 7;
+}
+.theme__button:nth-of-type(5) {
+    left: -240px;
+    z-index: 6;
 }
 .theme__button__title {
     position: relative;
     color: #ffffff;  
     text-align: center;
+    font-size: 10px;
 }
 .theme__button::before {
     content: "";
@@ -176,7 +271,7 @@ body {
     background-image: url('../images/horror-background-small.jpg');
 }
 .theme__button:nth-of-type(5)::before {
-    background-image: url('https://cdn.pixabay.com/photo/2020/02/07/18/37/apocalypse-4828037_1280.jpg');
+    background-image: url('https://cdn.pixabay.com/photo/2019/05/09/15/08/jungle-4191340_1280.jpg');
 }
 .theme__button:hover::before {
     opacity: 1;
@@ -191,14 +286,14 @@ body {
 /*--------------------*/
 
 .movie__container {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 10vh;
+    @include flexbox();
+    @include align-items(center);
+    @include flex-direction(column);
+    margin-top: 8vh;
 }
 .movie__content {
-    display: flex;
-    flex-direction: row;
+    @include flexbox();
+    @include flex-direction(row);
     margin-bottom: 10px;
     margin-top: 10px;
     background-color: #fff6ee;
@@ -214,8 +309,8 @@ body {
     width: 70%;
     margin: 30px;
     position: relative;
-    display: flex;
-    flex-direction: column;
+    @include flexbox();
+    @include flex-direction(column);
 }
 .movie__title {
     font-family: $main-font;
@@ -288,7 +383,7 @@ body {
         width: 290px;
         max-height: 350px;
         overflow-y: scroll;
-        flex-direction: column-reverse;
+        @include flex-direction(column-reverse);
     }
     .movie__title {
         font-size: 5vw;
@@ -456,7 +551,7 @@ body {
 /* -------- Adventure -------- */
 
 .adventure__theme {
-    background-image: url('https://cdn.pixabay.com/photo/2020/02/07/18/37/apocalypse-4828037_1280.jpg');
+    background-image: url('https://cdn.pixabay.com/photo/2019/05/09/15/08/jungle-4191340_1280.jpg');
 }
 .main__title--adventure {
     color: $adventure-color;
