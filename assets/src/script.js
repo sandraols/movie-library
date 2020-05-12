@@ -58,7 +58,7 @@ const removeMovie = (id) => {
 
 $('.theme__button').on('click', function () {
     const theme = this.id;
-    $('#background-wrap').removeClass().addClass(`${theme}__theme`);
+    $('.background-wrap').removeClass().addClass(`background-wrap ${theme}__theme`);
     $('#main-title').removeClass().addClass(`main__title main__title--${theme}`);
     $('#input').removeClass().addClass(`input input--${theme}`);
     $('.fa-search').removeClass().addClass(`fas fa-search fa-search--${theme}`);
