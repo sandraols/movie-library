@@ -14,8 +14,8 @@ input.addEventListener('keyup', function(search) {
 });
 
 $('#search-btn').on('click', function () {
-    let searchInput = document.getElementById('input').value;
-    $.ajax(`http://www.omdbapi.com/?apikey=2fb80044&t=${searchInput}`).done(function (movie) {
+    let searchInput = document.getElementById('input');
+    $.ajax(`http://www.omdbapi.com/?apikey=2fb80044&t=${searchInput.value}`).done(function (movie) {
         if (movie.Title == undefined) {
             $('#movie-container').prepend(`<div class="movie__content" style="height: 200px;" id="remove">
             <div class="right__content" style="width: 100%;">
@@ -24,6 +24,7 @@ $('#search-btn').on('click', function () {
             </div>
             </div`);
         } else {
+            searchInput.value = '';
             const theme = $('.active').attr('id');
             $('#movie-container').prepend(`
             <div class="movie__content movie__content--${theme}" id="${movie.imdbID}">
